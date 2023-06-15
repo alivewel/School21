@@ -1,0 +1,94 @@
+GCC=gcc -std=c11 -Wall -Werror -Wextra 
+OS=$(shell uname)
+Q1=s21_string.a
+OBJS_1=s21_string.o s21_sscanf.o s21_sprintf.o
+
+ifeq ($(OS), Linux)
+	LINUX=-lsubunit
+else
+	VIEWHTML=open ./report/index.html
+endif
+
+all: $(Q1) test gcov_report
+
+$(Q1): $(OBJS_1)
+	ar rcs libs21_string.a $(OBJS_1)
+	ranlib libs21_string.a
+
+.c.o:
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+test: s21_string.a
+	$(GCC) ./tests/s21_string_test.c -lcheck -lm $(LINUX) -L. -ls21_string -o ./test.out
+	 ./test.out
+
+gcov_report: s21_string.a
+	rm -rf *.o *.gcno *.gcda
+	$(GCC) ./tests/s21_string_test.c --coverage -lcheck -lm $(LINUX) -L. -ls21_string -o gcov
+	./gcov
+	lcov -t "gcov" -o gcov_report.info --no-external -c -d .
+	genhtml -o report gcov_report.info
+	$(VIEWHTML)
+
+clean:
+	rm -rf *.o *.a *.gcno *.gcda *.info gcov ./report test.out
+
+
+temp: s21_string.a
+	$(GCC) s21_string.a
+
+
+
+
+CC = -Wall -Werror -Wextra -std=c11
+OS := $(shell uname)
+
+ifeq ($(OS),Linux)
+FLAGS = -lcheck -lm -lpthread -lrt -lsubunit -fprofile-arcs -ftest-coverage
+else
+FLAGS = -lcheck -lm -lpthread -fprofile-arcs -ftest-coverage
+endif
+
+all: clean s21_string.a test gcov_report
+
+
+test: clean s21_string.a
+ gcc  unit_test_string.c s21_string.a $(FLAGS) -o unit_test
+ gcc  unit_test_sprintf.c s21_string.a $(FLAGS) -o unit_test2
+
+
+s21_string.a: s21_string.o s21_sprintf.o
+ ar -crs s21_string.a s21_string.o s21_sprintf.o
+
+s21_string.o:
+ gcc $(CC) -c s21_string.c
+
+s21_sprintf.o:
+ gcc $(CC) -c s21_sprintf.c
+
+
+gcov_report: clean s21_string.a test
+ ./unit_test
+ ./unit_test2
+ lcov -t "./unit_test"  -o report.info --no-external -c -d .
+ genhtml -o report report.info
+ open ./report/index.html
+
+ lcov -t "./unit_test2"  -o report.info --no-external -c -d .
+ genhtml -o report report.info
+ open ./report/index.html
+
+ rm -rf *.gcno *gcda *.gco
+
+
+clean:
+ rm -rf *.o *.a unit_test unit_test2
+ rm -rf *.gcno *gcda *.gcov gcov
+ rm -rf report report.info
+ rm -rf .clang-format
+
+copy:
+ cp ../materials/linters/.clang-format ./
+
+clang:
+ clang-format -n s* unit*.c

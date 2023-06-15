@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "__bit_reference": "c",
+        "algorithm": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "unordered_map": "c",
+        "random": "c",
+        "functional": "c",
+        "iterator": "c",
+        "memory": "c",
+        "ranges": "c",
+        "queue": "c",
+        "string.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c"
+    }
+}
