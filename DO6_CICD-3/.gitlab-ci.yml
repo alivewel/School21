@@ -1,0 +1,52 @@
+default:
+  tags: [bash, cicd]
+
+stages:
+  - build
+  - teststyle
+  - testcode
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - cd src/cat
+    - make
+    - cd ../grep
+    - make
+  artifacts:
+    paths:
+    - src/cat/s21_cat
+    - src/grep/s21_grep
+    expire_in: 30 day
+  after_script:
+    - bash src/telegram.sh
+
+teststyle_job:
+  stage: teststyle
+  when: on_success
+  script:
+    - cp materials/linters/.clang-format src/
+    - clang-format -n -Werror src/*/*.c
+    - clang-format -n -Werror src/*/*.h
+  after_script:
+    - bash src/telegram.sh
+
+testcode_job:
+  stage: testcode
+  when: on_success
+  script:
+    - cd src/cat
+    - make test
+    - cd ../grep
+    - make test
+  after_script:
+    - bash src/telegram.sh
+
+deploy_job:
+  stage: deploy
+  when: manual
+  script:
+    - bash src/deploy.sh
+  after_script:
+    - bash src/telegram.sh
