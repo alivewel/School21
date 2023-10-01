@@ -1,0 +1,48 @@
+SessionID: 5e65e411-02c4-4ff6-a626-51b494813139
+Frequency: 2.942796
+Timestamp: 2023-09-30 14:36:03.277039 +0000 UTC
+SessionID: c464924f-fc5b-4853-ac1e-7540b4514920
+Frequency: -9.343579
+Timestamp: 2023-09-30 14:36:03.277094 +0000 UTC
+SessionID: eac6be23-4ebe-428e-90b0-e065513fa06b
+Frequency: -1.614827
+Timestamp: 2023-09-30 14:36:03.277068 +0000 UTC
+SessionID: 76e7cfbe-1b9d-4831-8167-85e4c3259772
+Frequency: 3.337234
+Timestamp: 2023-09-30 14:36:03.277067 +0000 UTC
+SessionID: fe677f61-074c-4057-a0f3-d5ba52fe5d82
+Frequency: -8.603854
+Timestamp: 2023-09-30 14:36:03.277106 +0000 UTC
+SessionID: 7cca911c-45d4-454f-b0f7-a74ee9d20828
+Frequency: 2.942796
+Timestamp: 2023-09-30 14:36:53.569191 +0000 UTC
+SessionID: 20f8fd97-3539-433b-b3bd-83063b9a71ef
+Frequency: 3.337234
+Timestamp: 2023-09-30 14:36:54.862047 +0000 UTC
+SessionID: ce45ed5d-6168-42d0-bda5-228038fc29ba
+Frequency: -1.614827
+Timestamp: 2023-09-30 14:36:56.038008 +0000 UTC
+SessionID: 07270145-28c0-4ad8-8747-4071bddd1b8f
+Frequency: -9.343579
+Timestamp: 2023-09-30 14:36:57.259431 +0000 UTC
+SessionID: e55ced15-085c-4d2c-ba30-464ab979abd0
+Frequency: -8.603854
+Timestamp: 2023-09-30 14:36:58.41438 +0000 UTC
+SessionID: 9dc6da00-8cfc-4cee-bc88-d9a90c706fe3
+Frequency: 0.391264
+Timestamp: 2023-09-30 14:36:59.604682 +0000 UTC
+SessionID: cd685231-1c32-4fb1-a578-e14a18530434
+Frequency: -6.213083
+Timestamp: 2023-09-30 14:37:01.294656 +0000 UTC
+SessionID: aa4f1687-8a85-4384-b4c0-a23a1ad0f6f7
+Frequency: 2.942796
+Timestamp: 2023-09-30 14:53:27.02467 +0000 UTC
+SessionID: 25d7f6b6-5a93-4ef8-a498-af06551098b8
+Frequency: 3.337234
+Timestamp: 2023-09-30 14:53:28.52138 +0000 UTC
+SessionID: 1cad68ba-2cf8-4f3e-a287-4ce79df512a1
+Frequency: -1.614827
+Timestamp: 2023-09-30 14:53:29.749587 +0000 UTC
+SessionID: 96eaf2ea-7454-4644-98c5-4276fe2f6a60
+Frequency: -9.343579
+Timestamp: 2023-09-30 14:53:32.852055 +0000 UTC

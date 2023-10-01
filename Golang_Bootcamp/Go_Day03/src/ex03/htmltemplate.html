@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Places</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<h5>{{.Total}}</h5>
+<ul>
+    {{range $index, $item := .Items}}
+    <li>
+        <div>Name: {{index $.Name $index}}</div>
+        <div>Address: {{index $.Address $index}}</div>
+        <div>Phone: {{index $.Phone $index}}</div>
+    </li>
+    {{end}}
+</ul>
+<div>
+{{if gt .TotalPage 1}}
+  {{if gt .PageNum 1}}
+    <a href="/?page={{.PrevPage}}">Предыдущая</a>{{end}}{{if lt .PageNum .TotalPage}}
+    <a href="/?page={{.NextPage}}">Следующая</a>
+    <a href="/?page={{.LastPage}}">Последняя</a>
+  {{end}}
+{{end}}
+</div>
+</body>
+</html>	
